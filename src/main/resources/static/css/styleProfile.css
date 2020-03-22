@@ -1,0 +1,135 @@
+
+
+
+form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+
+
+}
+body{
+    background: rgba(117, 117, 117, 0.24); /* Цвет фона */
+}
+
+
+
+.efg{
+
+    border-radius: 5px; /* Радиус скругления */
+
+    /*width: 400px;	height: 400px; /* Размеры */
+    background: rgba(255, 255, 255, 0); /* Цвет фона */
+    padding: 60px; /* Поля вокруг текста */
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
+}
+
+.bttttn{
+    padding: 1.5em 0 0;
+}
+
+.form-text{
+    top: 50%;
+    left: 50%;
+
+
+}
+h2 {
+    background: rgba(0, 38, 39, 0.64);
+    font-weight: 300;
+    color: #fff;
+    padding: 0 10px;
+    margin: 30px 0 0 0;
+    border-radius: 3px; /* Радиус скругления */
+}
+
+.text-muted{
+    padding: 0 5px;
+}
+
+.card-img1{
+    width: 25px;	height: 25px; /* Размеры */
+}
+
+
+table{
+    clear:both;
+}
+@media screen and (min-width:410px){
+    .button1{
+        float:right;
+    }
+}
+
+.avatar img{
+    width:200px;
+    height:200px;
+}
+
+.settings_button img{
+    width:20px;
+    height:20px;
+}
+
+
+.kniga{
+    /*outline: 2px solid rgba(117, 117, 117, 0.58); !* Чёрная рамка *!*/
+    border-radius: 25px; /* Радиус скругления */
+
+
+
+}
+.nn6{
+    border-radius: 25px; /* Радиус скругления */
+
+}
+
+.card{
+    border-color: rgba(197, 197, 197, 0);
+    /*padding: 0 10px;*/
+}
+
+
+.nn6 a{
+    color:black;
+}
+
+h1{
+    font-weight: 300;
+    font-size: 25px;
+}
+
+
+.content a{
+    color:black;
+}
+.whiteRent{
+    color: white;
+}
+
+.content{
+    z-index:-1;
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;
+    padding-bottom:20px;
+    position:relative;
+    margin-top:60px;
+    background-color:white;
+}
+
+.product{
+    position:relative;
+    margin-left:15%;
+    width:800px;
+}
+
+.product img{
+    margin:50px;
+    width:700px;
+    height:400px;
+}

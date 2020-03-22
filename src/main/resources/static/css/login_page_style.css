@@ -1,0 +1,82 @@
+body{
+	background-color:rgb(211,211,211);
+	position:relative;
+	font-family: Arial;
+	margin:0 0 0 0;
+	padding:0;
+}
+
+.navbar{
+	position:fixed;
+	width:100%;
+	height:60px;
+	margin:0 0 0 0;
+	background-color:rgb(120,124,176);
+	color:white;
+}
+
+.nav-link{
+	color:white;
+}
+
+.login_window{
+	position:fixed;
+	width:45%;
+	margin:10% 38% 0 27%;
+	padding:10px;
+	background-color:white;
+	font-size:20px;
+}
+
+.login_window .field{
+	width:95%;
+	margin-top:3px;
+}
+
+.registration_window{
+	position:fixed;
+	width:45%;
+	margin:7% 38% 0 27%;
+	padding:10px;
+	background-color:white;
+	font-size:20px;
+}
+
+.registration_window .field{
+	width:95%;
+	margin-top:3px;
+}
+
+.form_row{
+	overflow:hidden;
+	margin-bottom:8px;
+	margin-top:7px;
+}
+
+.form_field{
+	float:left;
+	width:70%;
+	margin-left:12%;
+}
+.form_field2{
+	float:left;
+	width:30%;
+	margin-left:12%;
+}
+
+.checkbox{
+	margin-left:12%;
+}
+
+.error_mes{
+	color:red;
+	font-size:10px;
+	font-style:italic;
+}
+.submit_button{
+	margin-top:15px;
+	margin-bottom:10px;
+	margin-left:68%;
+	width:90px;
+	height:40px;
+}
