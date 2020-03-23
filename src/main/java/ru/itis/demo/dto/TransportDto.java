@@ -18,9 +18,11 @@ import java.util.stream.Collectors;
 public class TransportDto {
     private Long id;
     private String name;
+    private String city;
     private String info;
     private Integer year;
     private Type type;
+    private String file;
 
     public static TransportDto from(Transport transport) {
         return TransportDto.builder()
@@ -29,6 +31,8 @@ public class TransportDto {
                 .info(transport.getInfo())
                 .year(transport.getYear())
                 .type(transport.getType())
+                .city(transport.getCity())
+                .file(transport.getFile())
                 .build();
     }
 

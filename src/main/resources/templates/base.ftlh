@@ -28,14 +28,12 @@
                 <a class="nav-link" href="/start">Start <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/transProd">Produkt</a>
+                <a class="nav-link" href="/transports">Produkt</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/profile">ProfilePage</a>
             </li>
-            <li>
-                <a class="nav-link" href="/search">Поиск Транспорта</a>
-            </li>
+
         </ul>
 
     </div>

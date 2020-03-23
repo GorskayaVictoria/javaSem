@@ -1,0 +1,87 @@
+.content{
+    z-index:-1;
+    padding-top:10px;
+    padding-bottom:100%;
+    position:relative;
+    margin-top:60px;
+    color:rgb(120,124,176);
+    margin-left:150px;
+
+
+}
+input{
+    width:40%;
+    margin-left:150px;
+
+}
+
+body{
+    background-color:rgb(211,211,211);
+    position:absolute;
+    font-family: Arial;
+    margin:0 0 0 0;
+    padding:0;
+    z-index:0;
+    width:100%;
+}
+
+.navbar{
+    position:fixed;
+    width:100%;
+    height:60px;
+    margin:0 0 0 0;
+    background-color:rgb(120,124,176);
+    color:white;
+}
+
+.nav-link{
+    color:white;
+}
+
+.products{
+    margin-top:60px;
+    width:100%;
+    position:relative;
+    z-index:-1;
+}
+
+.products a{
+    color:black;
+}
+
+.product{
+    float:left;
+    width:25%;
+    height:400px;
+}
+
+.card-body img{
+    height:75%;
+}
+.all_reviews{
+    position:relative;
+    width:90%;
+    margin-top:50px;
+    margin-left:6%;
+}
+
+.all_results{
+    margin-top:65px;
+    margin-left:150px;
+    width:100%;
+    position:relative;
+    padding:0 0 0 10px;
+
+}
+
+.all_results a{
+    color:black;
+}
+.all_results h5{
+    font-size: 25px;
+    font-weight: 200;
+    line-height: 40px;
+}
+
+
+

@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.itis.demo.dto.UserDto;
 import ru.itis.demo.models.User;
-import ru.itis.demo.repositories.CookieValuesRepository;
 import ru.itis.demo.repositories.UsersRepository;
 
 import java.util.List;
@@ -37,7 +36,10 @@ public class UsersServiceImpl implements UsersService {
         return from(usersRepository.findAllByNameContainsIgnoreCase(name));
     }
 
-
+    @Override
+    public void deleteUser(Long userId) {
+        deleteUser(userId);
+    }
 
 
 }

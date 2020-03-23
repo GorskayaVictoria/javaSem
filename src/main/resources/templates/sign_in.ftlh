@@ -26,9 +26,7 @@
 				<li class="nav-item">
 					<a class="nav-link" href="/profile">ProfilePage</a>
 				</li>
-				<li>
-					<a class="nav-link" href="/search">Поиск Транспорта</a>
-				</li>
+
 			</ul>
 
 		</div>

@@ -1,18 +1,22 @@
 package ru.itis.demo.controllers;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import ru.itis.demo.dto.TransportDto;
-import ru.itis.demo.dto.UserDto;
-import ru.itis.demo.service.CookieService;
 import ru.itis.demo.service.TransportService;
 
-import java.security.Principal;
+import java.io.IOException;
 import java.util.List;
 
 
@@ -29,8 +33,6 @@ public class TransportController {
     public String getConcreteUserPage(@PathVariable("transport-id") Long transportId, Model model) {
         TransportDto transport = transportService.getConcreteTransport(transportId);
         model.addAttribute("transport", transport);
-        System.out.println("qwertyui");
-
         return "transport_page";
     }
 
@@ -40,7 +42,37 @@ public class TransportController {
     public String getUsersPage(Model model) {
             List<TransportDto> transports = transportService.getTransports();
             model.addAttribute("transports", transports);
-            return "transports_page";
+            return "trans";
 
+    }
+    @GetMapping("/search")
+    @ResponseBody
+    public String searchUsers(@RequestParam("name") String name) throws JSONException, JsonProcessingException {
+        JSONArray ja = new JSONArray();
+        ObjectMapper mapper = new ObjectMapper();
+        for (TransportDto transportDto: transportService.search(name)) {
+            ja.put(mapper.writeValueAsString(transportDto));
+        }
+
+        JSONObject jo = new JSONObject();
+        jo.put("objects", ja);
+        return (jo.toString());
+
+    }
+
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @GetMapping("/newTrans")
+    public String getNewTrans() {
+        return "regTrans_page";
+    }
+
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @PostMapping("/newTrans")
+    public String handleFileUpload(@RequestParam("file") MultipartFile file, TransportDto form) throws IOException {
+        // сохраняем файл на диск
+        String filePath = transportService.saveFile(file);
+        transportService.regNewTrans(form, filePath);
+        // отправляем пользователю полный путь к этому файлу
+        return "redirect:/transports";
     }
 }

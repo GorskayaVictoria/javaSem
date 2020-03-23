@@ -14,48 +14,45 @@
     <title>Document</title>
 </head>
 <body>
-<div>
-    <table>
-        <tr>
-            <th>Имя</th>
-            <th>email</th>
-        </tr>
-        <#list users as user>
-            <tr>
-                <td>${user.name}</td>
-                <td>${user.email}</td>
-                <td><a href="localhost/users/${user.id}">Посмотреть</a></td>
-            </tr>
-        </#list>
-    </table>
+
+<div class="content">
+    <p><input id="name" oninput="f()"/></p>
+    <div class="result" id ="res">
+    </div>
+    <hr>
 
 
-</div>
-<p><input id="name" oninput="f()"/></p>
-<div class="result" id ="res">
+    <div class="all_results">
+
+        <div class="result" id ="res">
+
+        </div>
+
+        <!--<a href="#"><h5>Result</h5></a>-->
+    </div>
 </div>
 <script type="application/javascript">
 
-function f() {
-$("#res").html($("#name").val());
-    if ($("#name").val().length >= 1) {
-    $.ajax({
-    url: "/search",
-            data: {"name": $("#name").val()},
-                dataType: "json",
+    function f() {
+        $("#res").html($("#name").val());
+        if ($("#name").val().length >= 1) {
+            $.ajax({
+                        url: "/search",
+                        data: {"name": $("#name").val()},
+                        dataType: "json",
 
-                success: function (msg) {
-                    if (msg.objects.length > 0) {
-                        $("#res").html("");
-                        for (var i = 0; i < msg.objects.length; i++) {
-                            $("#res").append("<li>" + JSON.parse(msg.objects[i]).name + "</li>");
+                        success: function (msg) {
+                            if (msg.objects.length > 0) {
+                                $("#res").html("");
+                                for (var i = 0; i < msg.objects.length; i++) {
+                                    $("#res").append("<li>" + JSON.parse(msg.objects[i]).name + "</li>");
+                                }
+                            }else{
+                                $("#res").html("No results..");
+                            }
+                        }
                     }
-                }else{
-                        $("#res").html("No results..");
-                    }
-                }
-                }
-    )}
+            )}
     }
 </script>
 

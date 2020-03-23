@@ -23,7 +23,10 @@ public class Transport {
     private String city;
     private String info;
     private Integer year;
+    private String file;
 
+
+    private LocalDateTime createdAt;
 
     @Enumerated(value = EnumType.STRING)
     private Type type;
