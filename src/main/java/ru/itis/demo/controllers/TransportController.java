@@ -68,10 +68,10 @@ public class TransportController {
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping("/newTrans")
-    public String handleFileUpload(@RequestParam("file") MultipartFile file, TransportDto form) throws IOException {
+    public String handleFileUpload(TransportDto form) throws IOException {
         // сохраняем файл на диск
-        String filePath = transportService.saveFile(file);
-        transportService.regNewTrans(form, filePath);
+
+        transportService.regNewTrans(form);
         // отправляем пользователю полный путь к этому файлу
         return "redirect:/transports";
     }

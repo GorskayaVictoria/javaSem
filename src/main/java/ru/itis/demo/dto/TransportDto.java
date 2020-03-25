@@ -22,7 +22,7 @@ public class TransportDto {
     private String info;
     private Integer year;
     private Type type;
-    private String file;
+    private String filePath;
 
     public static TransportDto from(Transport transport) {
         return TransportDto.builder()
@@ -32,7 +32,7 @@ public class TransportDto {
                 .year(transport.getYear())
                 .type(transport.getType())
                 .city(transport.getCity())
-                .file(transport.getFile())
+                .filePath(transport.getFilePath())
                 .build();
     }
 

@@ -47,7 +47,7 @@
             <div class="card-body">
                 <a href="/transport/${trans.id}">
 
-                    <img src="/img/${trans.file}" class="card-img-top" alt=${trans.name} width="400" height="150">
+                    <img src="/img/${trans.filePath}" class="card-img-top" alt=${trans.name} width="400" height="150">
                     <div class="card-footer">
                         <p class="card-text">${trans.name}</p>
                     </div>

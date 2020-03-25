@@ -36,7 +36,7 @@
 </nav>
 <div class="content">
     <div class="product">
-        <img src="/img/${transport.file}" class="card-img1" alt="${transport.name}" >
+        <img src="/img/${transport.filePath}" class="card-img1" alt="${transport.name}" >
         <h5 class="card-title">${transport.name}</h5>
         <small class="card-title">${transport.info}</small>
         <small class="card-title">${transport.city}</small>

@@ -34,15 +34,16 @@ public class StorageController {
     // MultipartFile - файл, который вы принимаете
     // ResponseEntity - класс, который позволяет отправить в ответе
     // не только тело, но и статус и заголовки ответа
-//    @PostMapping("/files")
-//    public ResponseEntity<String> handleFileUpload(@RequestParam("file") MultipartFile file) throws IOException {
-//        // сохраняем файл на диск
-//        String filePath = service.saveFile(file);
-//        // отправляем пользователю полный путь к этому файлу
-//        return ResponseEntity
-//                .ok()
-//                .body(filePath);
-//    }
+    @PostMapping("/files")
+    public ResponseEntity<String> handleFileUpload(@RequestParam("file") MultipartFile file) throws IOException {
+        // сохраняем файл на диск
+        String filePath = service.saveFile(file);
+        // отправляем пользователю полный путь к этому файлу
+        System.out.println(filePath);
+        return ResponseEntity
+                .ok()
+                .body(filePath);
+    }
 
 }
 

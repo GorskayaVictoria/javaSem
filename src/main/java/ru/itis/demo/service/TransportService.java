@@ -14,7 +14,7 @@ public interface TransportService {
 
     List<TransportDto> search(String name);
 
-    void regNewTrans(TransportDto form, String file);
+    void regNewTrans(TransportDto form);
     // сохраняет файл на сервере
     String saveFile(MultipartFile file) throws IOException;
 

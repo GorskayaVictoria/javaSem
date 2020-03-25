@@ -25,23 +25,27 @@
                     <label for="txtConfirmPassword"> year<br></label>
                     <input class="field" type="number" name="year" >
                 </div>
+                <div id="filename"></div>
             </div>
 
-            <div class="form_row">
-                <div>
-                    <input type="file" id="file" name="file" placeholder="Имя файла..."/>
 
-                    <input type="hidden" id="file_hidden">
-                    <div class="filename"></div>
-                </div>
-
-            </div>
 
             <div>
-                <button onclick="sendFile()" type="submit" class="btn btn-secondary submit_button">Submit</button>
+                <button type="submit" class="btn btn-secondary submit_button">Submit</button>
             </div>
         </div>
     </form>
+
+
+    <div class="form_row">
+        <div>
+            <input type="file" id="file" name="file" placeholder="Имя файла..."/>
+
+            <button onclick="sendFile()">загрузка</button>
+
+        </div>
+
+    </div>
 </div>
 
 
@@ -59,11 +63,18 @@
 
         $.ajax({
             type: "POST",
-            url: "/newTrans",
+            url: "/files",
             data: formData,
             processData: false,
             contentType: false
         })
+                .done(function (response) {
+                    let fileUrl =  ""+ response;
+                    $('#filename').append('<input type="hidden" name="filePath" value="'+ fileUrl + '">');
+                })
+                .fail(function () {
+                    alert('Error')
+                })
 
     }
 </script>

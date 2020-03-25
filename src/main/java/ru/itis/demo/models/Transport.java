@@ -23,7 +23,7 @@ public class Transport {
     private String city;
     private String info;
     private Integer year;
-    private String file;
+    private String filePath;
 
 
     private LocalDateTime createdAt;

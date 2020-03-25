@@ -12,6 +12,7 @@ import ru.itis.demo.repositories.TransportsRepository;
 import ru.itis.demo.util.FileStorageUtil;
 
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -46,14 +47,15 @@ public class TransportServiceImpl implements TransportService{
     }
 
     @Override
-    public void regNewTrans(TransportDto form, String file) {
+    public void regNewTrans(TransportDto form) {
+        System.out.println(form);
         Transport transport = Transport.builder()
                 .city(form.getCity())
                 .name(form.getName())
                 .info(form.getInfo())
                 .createdAt(LocalDateTime.now())
                 .year(form.getYear())
-                .file(file)
+                .filePath(form.getFilePath())
                 .type(Type.CAR)
                 .build();
 
@@ -70,6 +72,7 @@ public class TransportServiceImpl implements TransportService{
     public String saveFile(MultipartFile file) throws IOException {
         // вытягиваем всю инофрмацию о файле для сохранения ее в бд
         FileInfo fileInfo = fileStorageUtil.convertFromMultipart(file);
+
         // сохраняем информацию о файле
         fileInfoRepository.save(fileInfo);
         // переносим файл на наш диск
