@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<#include 'base.ftlh'/>
+
+<#macro content>
+ <link rel="stylesheet" href="/css/style.css">
 <div>
     <table>
         <tr>
@@ -21,5 +18,5 @@
     </table>
 
 </div>
-</body>
-</html>
+</#macro>
+<@main/>

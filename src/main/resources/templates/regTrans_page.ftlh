@@ -1,6 +1,7 @@
 <#include 'base.ftlh'/>
 
 <#macro content>
+<link rel="stylesheet" href="/css/style.css" type="text/css">
 
 <div class="registration_window">
     <form method="POST" enctype="multipart/form-data" novalidate>

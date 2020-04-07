@@ -1,35 +1,35 @@
 
 <#include 'base.ftlh'/>
 
-<#macro content>
-
+		<#macro content>
+<link rel="stylesheet" href="/css/login_page_style.css" type="text/css">
 		<div class="registration_window">
 			<form method="POST" enctype="multipart/form-data" novalidate>
 				<div>
 					<div class="form_row">
 						<div class="form_field2">
-							<label for="name">Name<br></label>
+							<label for="name"><@spring.message 'registration_page.page.name'/><br></label>
 							<input class="field" type="text" name="name" id="name" required pattern="[A-Z][a-z]*" onblur="checkLength(this, 3, 20); checkNamePatternMatch(this)" onfocus="clearErrorMessage(this)">
 						</div>
 						<div class="form_field2">
-							<label for="email">Email<br></label>
+							<label for="email"><@spring.message 'registration_page.page.email'/><br></label>
 							<input class="field" type="email" name="email" id="email" required pattern="([0-9]|[a-z]|_|-)+@[a-z]+\.[a-z]{2,3}" onblur="checkEmailPatternMatch(this)" onfocus="clearErrorMessage(this)">
 						</div>
 					</div>
 
 					<div class="form_row">
 						<div class="form_field2">
-							<label for="txtNewPassword">Password<br></label>
+							<label for="txtNewPassword"><@spring.message 'registration_page.page.password'/><br></label>
 							<input class="field" type="password" name="password" id="txtNewPassword" required pattern="([0-9]|[A-Z]|[a-z])*" onblur="checkLength(this, 8, Number.MAX_VALUE); checkPasswordCorrect(this); checkNickPatternMatch(this)" onfocus="clearErrorMessage(this)">
 						</div>
 						<div class="form_field2">
-							<label for="txtConfirmPassword">Repeat password<br></label>
+							<label for="txtConfirmPassword"><@spring.message 'registration_page.page.password2'/><br></label>
 							<input class="field" type="password" name="txtConfirmPassword" id="txtConfirmPassword" required pattern="([0-9]|[A-Z]|[a-z])*" onblur="checkPasswordMatch(this)" onfocus="clearErrorMessage(this)">
 						</div>
 					</div>
 
 					<div>
-						<button type="submit" class="btn btn-secondary submit_button">Submit</button>
+						<button type="submit" class="btn btn-secondary submit_button"><@spring.message 'registration_page.page.submit'/></button>
 					</div>
 				</div>
 			</form>
