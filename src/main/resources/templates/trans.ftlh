@@ -4,6 +4,8 @@
 <#include 'base.ftlh'/>
 
 <#macro content>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
  <link rel="stylesheet" href="/css/style.css">
 		<div class=" products">
     <#list transports as trans>
@@ -24,35 +26,54 @@
     </#list>
 
 		</div>
-<div class="result" id ="res">
+<#--<div class="content">-->
+    <#--<p><input id="name" oninput="f()"/></p>-->
 
-</div>
+    <#--<hr>-->
 
 
-<script type="application/javascript">
+    <#--<div class="all_results">-->
 
-    function f() {
-        $("#res").html($("#name").val());
-        if ($("#name").val().length >= 1) {
-            $.ajax({
-                        url: "/search",
-                        data: {"name": $("#name").val()},
-                        dataType: "json",
+        <#--<div class="result" id ="res">-->
 
-                        success: function (msg) {
-                            if (msg.objects.length > 0) {
-                                $("#res").html("");
-                                for (var i = 0; i < msg.objects.length; i++) {
-                                    $("#res").append("<li>" + JSON.parse(msg.objects[i]).name + "</li>");
-                                }
-                            }else{
-                                $("#res").html("No results..");
-                            }
-                        }
-                    }
-            )}
-    }
-</script>
+        <#--</div>-->
+        <#--<div class="result" id ="hah">-->
+        <#--</div>-->
+
+        <#--<!--<a href="#"><h5>Result</h5></a>&ndash;&gt;-->
+    <#--</div>-->
+<#--</div>-->
+
+<#--<script src="/js/jquery.js"></script>-->
+<#--<script type="application/javascript">-->
+
+    <#--function f() {-->
+
+        <#--if ($("#name").val().length > 0) {-->
+            <#--$.ajax({-->
+                        <#--url: "/searchTrans",-->
+                        <#--data: {"name": $("#name").val()},-->
+                        <#--dataType: "json",-->
+
+                        <#--success: function (msg) {-->
+                            <#--alert("sdfghj")-->
+                            <#--// $("#hah").html("ллл");-->
+                            <#--// if (msg.objects.length > 0) {-->
+                            <#--//-->
+                            <#--//     for (var i = 0; i < msg.objects.length; i++) {-->
+                            <#--//         $("#res").append("<li>" + "hiiiiii"+ "</li>");-->
+                            <#--//     }-->
+                            <#--// }else{-->
+                            <#--//     $("#res").html("No results..");-->
+                            <#--// }-->
+                        <#--}-->
+                    <#--}-->
+            <#--)}-->
+
+    <#--}-->
+<#--</script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 
 
 </#macro>

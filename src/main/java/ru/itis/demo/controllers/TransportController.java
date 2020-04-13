@@ -14,6 +14,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ru.itis.demo.dto.TransportDto;
+import ru.itis.demo.models.Transport;
+import ru.itis.demo.models.User;
 import ru.itis.demo.service.TransportService;
 
 import java.io.IOException;
@@ -45,20 +47,22 @@ public class TransportController {
             return "trans";
 
     }
-    @GetMapping("/search")
-    @ResponseBody
-    public String searchUsers(@RequestParam("name") String name) throws JSONException, JsonProcessingException {
-        JSONArray ja = new JSONArray();
-        ObjectMapper mapper = new ObjectMapper();
-        for (TransportDto transportDto: transportService.search(name)) {
-            ja.put(mapper.writeValueAsString(transportDto));
-        }
-
-        JSONObject jo = new JSONObject();
-        jo.put("objects", ja);
-        return (jo.toString());
-
-    }
+//    @GetMapping("/searchTrans")
+//    @ResponseBody
+//    public String searchUsers(@RequestParam("name") String name) throws JSONException, JsonProcessingException {
+//        System.out.println("dfghjkjhg");
+//        JSONArray ja = new JSONArray();
+//        ObjectMapper mapper = new ObjectMapper();
+//        for (TransportDto transportDto: transportService.search(name)) {
+//            ja.put(mapper.writeValueAsString(transportDto));
+//        }
+//
+//        JSONObject jo = new JSONObject();
+//        jo.put("objects", ja);
+//
+//        return (jo.toString());
+//
+//    }
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/newTrans")
@@ -74,5 +78,20 @@ public class TransportController {
         transportService.regNewTrans(form);
         // отправляем пользователю полный путь к этому файлу
         return "redirect:/transports";
+    }
+
+
+    @GetMapping("/transportsTest")
+    public String getTransPage(Model model) {
+        List<TransportDto> transports = transportService.getTransports();
+        model.addAttribute("trans", transports);
+        return "search";
+
+    }
+
+    @GetMapping("/searchTrans")
+    @ResponseBody
+    public List<Transport> searchUsers(@RequestParam("name") String name) {
+        return transportService.searchTrans(name);
     }
 }

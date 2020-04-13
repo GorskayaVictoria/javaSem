@@ -42,4 +42,8 @@ public class UsersServiceImpl implements UsersService {
     }
 
 
+    @Override
+    public List<User> searchUsers(String name) {
+        return usersRepository.searchUsers(name);
+    }
 }

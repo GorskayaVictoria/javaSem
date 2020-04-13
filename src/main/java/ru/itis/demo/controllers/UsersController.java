@@ -10,13 +10,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.itis.demo.dto.TransportDto;
 import ru.itis.demo.dto.UserDto;
+import ru.itis.demo.models.User;
 import ru.itis.demo.service.TransportService;
 import ru.itis.demo.service.UsersService;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.security.Principal;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 @Controller
 public class UsersController {
@@ -44,13 +47,20 @@ public class UsersController {
         return "redirect:/users";
     }
 
-    @PreAuthorize("hasAuthority('ADMIN')")
+
     @GetMapping("/users")
     public String getUsersPage(Model model) {
         List<UserDto> users = usersService.getUsers();
         model.addAttribute("users", users);
         return "users";
     }
+
+    @GetMapping("/searchUsers")
+    @ResponseBody
+    public List<User> searchUsers(@RequestParam("name") String name) {
+        return usersService.searchUsers(name);
+    }
+
 
 
 

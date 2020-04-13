@@ -24,6 +24,9 @@ public class SignUpServiceImpl implements SignUpService {
     private EmailService emailService;
 
     @Autowired
+    private MessageService messageService;
+
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
 
@@ -42,7 +45,9 @@ public class SignUpServiceImpl implements SignUpService {
         usersRepository.save(user);
         Map< String, Object > model = new HashMap<>();
         model.put("user", user);
-        emailService.sendMail("Confirm", model, user.getEmail());
+        System.out.println(user.getName());
+//        messageService.sendMail("79178924628",user.getName(),user.getConfirmCode());
+       emailService.sendMail("Confirm", model, user.getEmail());
 
     }
 }

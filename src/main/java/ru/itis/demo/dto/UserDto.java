@@ -17,12 +17,17 @@ public class UserDto {
     private Long id;
     private String name;
     private String email;
+    private String role;
+    private String state;
+
 
     public static UserDto from(User user) {
         return UserDto.builder()
                 .id(user.getId())
                 .name(user.getName())
                 .email(user.getEmail())
+                .role(user.getRole().name())
+                .state(user.getState().name())
                 .build();
     }
 

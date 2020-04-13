@@ -28,14 +28,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
 
         http.authorizeRequests()
-                .antMatchers("/users/**").hasAuthority("ADMIN")
+                .antMatchers("/users/**").permitAll()
                 .antMatchers("/").authenticated()
                 .antMatchers("/profile").authenticated()
 //                .antMatchers("/profile").authenticated()
                 .antMatchers("/signUp").permitAll()
                 .antMatchers("/confirm/**").permitAll()
                 .antMatchers("/transport/**").permitAll()
-                .antMatchers("/transports/").permitAll();
+                .antMatchers("/transports/").permitAll()
+                .antMatchers("/search/**").permitAll()
+                .antMatchers("/searchTrans/**").permitAll();
+
 
         http.formLogin()
                 .loginPage("/signIn")

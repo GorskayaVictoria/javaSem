@@ -20,7 +20,7 @@
     </properties>
 
     <dependencies>
-
+        <!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl -->
         <!-- https://mvnrepository.com/artifact/org.webjars.bower/jquery.ajax -->
         <dependency>
             <groupId>org.webjars.bower</groupId>
